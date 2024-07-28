@@ -76,22 +76,22 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t layer = biton32(state);
     switch (layer) {
         case 0:
-            rgblight_sethsv(HSV_CYAN,100);
+            rgblight_sethsv(HSV_CYAN);
             break;
         case 1:
-            rgblight_sethsv(HSV_WHITE,100);
+            rgblight_sethsv(HSV_WHITE);
             break;
         case 2:
-            rgblight_sethsv(HSV_BLUE,100);
+            rgblight_sethsv(HSV_BLUE);
             break;
         case 3:
-            rgblight_sethsv(HSV_RED,100);
+            rgblight_sethsv(HSV_RED);
             break;
         case 4:
-            rgblight_sethsv(HSV_PURPLE,100);
+            rgblight_sethsv(HSV_PURPLE);
             break;
         case 5:
-            rgblight_sethsv(HSV_ORANGE,100);
+            rgblight_sethsv(HSV_ORANGE);
             break;
     }
 
