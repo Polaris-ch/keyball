@@ -17,7 +17,7 @@ jobs:
     name: Build a firmware ${{ inputs.keyboard }}:${{ inputs.keymap }}
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/qmk/qmk_cli:0.1.4
+      image: ghcr.io/qmk/qmk_cli:1.2.0
     steps:
     - name: Checkout source
       uses: actions/checkout@v4.2.2
