@@ -525,6 +525,16 @@ void keyball_set_scroll_mode(bool mode) {
     keyball.scroll_mode = mode;
 }
 
+uint8_t keyball_get_scroll_reverse_mode(void) {
+    return keyball.scroll_reverse_mode;
+}
+
+void keyball_set_scroll_reverse_mode(uint8_t mode) {
+    if (mode <= (KEYBALL_SCROLL_REVERSE_VERTICAL | KEYBALL_SCROLL_REVERSE_HORIZONTAL)) {
+        keyball.scroll_reverse_mode = mode;
+    }
+}
+
 keyball_scrollsnap_mode_t keyball_get_scrollsnap_mode(void) {
 #if KEYBALL_SCROLLSNAP_ENABLE == 2
     return keyball.scrollsnap_mode;
