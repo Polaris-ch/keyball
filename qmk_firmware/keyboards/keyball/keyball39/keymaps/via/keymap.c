@@ -120,6 +120,11 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 
+void oledkit_render_logo_user(void) {
+    oled_clear();
+}
+#endif
+
 #if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
 uint32_t os_detect_callback(uint32_t trigger_time, void *cb_arg) {
 #if defined(MAGIC_KEYCODE_ENABLE) || defined(KEYBALL_KEEP_MAGIC_FUNCTIONS)
