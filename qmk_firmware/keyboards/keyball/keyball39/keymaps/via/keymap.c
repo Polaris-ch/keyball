@@ -158,3 +158,6 @@ void keyboard_post_init_user(void) {
 #endif
 }
 #endif
+
+#define NO_DEBUG
+#define NO_PRINT
