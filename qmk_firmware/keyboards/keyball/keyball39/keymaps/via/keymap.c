@@ -163,4 +163,6 @@ void keyboard_post_init_user(void) {
 #endif
 }
 
+#define NO_ACTION_ONESHOT
+
 
