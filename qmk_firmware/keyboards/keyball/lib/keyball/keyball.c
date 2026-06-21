@@ -233,6 +233,12 @@ __attribute__((weak)) void keyball_on_apply_motion_to_mouse_scroll(keyball_motio
             break;
     }
 #endif
+    if (keyball_get_scroll_reverse_mode() & KEYBALL_SCROLL_REVERSE_VERTICAL) {
+        r->v = -r->v;
+    }
+    if (keyball_get_scroll_reverse_mode() & KEYBALL_SCROLL_REVERSE_HORIZONTAL) {
+        r->h = -r->h;
+    }
 }
 
 static void motion_to_mouse(keyball_motion_t *m, report_mouse_t *r, bool is_left, bool as_scroll) {
