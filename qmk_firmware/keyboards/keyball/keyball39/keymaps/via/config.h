@@ -39,4 +39,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_DEFAULT_LAYER 4
 #define DYNAMIC_KEYMAP_LAYER_COUNT 7
 #define TAPPING_TERM 200 // ミリ秒
-
+#define KEYBALL_KEEP_MAGIC_FUNCTIONS
