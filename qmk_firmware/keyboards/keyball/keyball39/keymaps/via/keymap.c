@@ -118,4 +118,42 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_ballinfo();
     keyball_oled_render_layerinfo();
 }
+
+#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
+uint32_t os_detect_callback(uint32_t trigger_time, void *cb_arg) {
+#if defined(MAGIC_KEYCODE_ENABLE) || defined(KEYBALL_KEEP_MAGIC_FUNCTIONS)
+    keymap_config.raw = eeconfig_read_keymap();
+#endif
+    switch (detected_host_os()) {
+        case OS_WINDOWS: {
+            keyball_set_scroll_reverse_mode(0);
+#if defined(MAGIC_KEYCODE_ENABLE) || defined(KEYBALL_KEEP_MAGIC_FUNCTIONS)
+            keymap_config.swap_lctl_lgui = false;
+            keymap_config.swap_rctl_rgui = false;
+#endif
+            break;
+        }
+        case OS_MACOS: {
+            keyball_set_scroll_reverse_mode(KEYBALL_SCROLL_REVERSE_VERTICAL | KEYBALL_SCROLL_REVERSE_HORIZONTAL);
+#if defined(MAGIC_KEYCODE_ENABLE) || defined(KEYBALL_KEEP_MAGIC_FUNCTIONS)
+            keymap_config.swap_lctl_lgui = true;
+            keymap_config.swap_rctl_rgui = true;
+#endif
+            break;
+        }
+        default:
+            break;
+    }
+#if defined(MAGIC_KEYCODE_ENABLE) || defined(KEYBALL_KEEP_MAGIC_FUNCTIONS)
+    eeconfig_update_keymap(keymap_config.raw);
+#endif
+    return 0;
+}
+#endif
+
+void keyboard_post_init_user(void) {
+#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
+    defer_exec(100, os_detect_callback, NULL);
+#endif
+}
 #endif
