@@ -179,6 +179,7 @@ typedef struct {
 
     // Buffer to indicate pressing keys.
     char pressing_keys[KEYBALL_OLED_MAX_PRESSING_KEYCODES + 1];
+    uint8_t  scroll_reverse_mode;
 } keyball_t;
 
 typedef enum {
@@ -270,3 +271,13 @@ uint8_t keyball_get_cpi(void);
 /// In addition, if you do not upload SROM, the maximum value will be limited
 /// to 35 (3500CPI).
 void keyball_set_cpi(uint8_t cpi);
+
+/// for mac
+enum {
+    KEYBALL_SCROLL_REVERSE_VERTICAL   = 1,
+    KEYBALL_SCROLL_REVERSE_HORIZONTAL = 2,
+};
+
+uint8_t keyball_get_scroll_reverse_mode(void);
+void    keyball_set_scroll_reverse_mode(uint8_t mode);
+
