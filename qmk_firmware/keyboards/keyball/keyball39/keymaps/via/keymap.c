@@ -162,5 +162,5 @@ void keyboard_post_init_user(void) {
     defer_exec(100, os_detect_callback, NULL);
 #endif
 }
-#endif
+
 
