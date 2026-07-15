@@ -161,6 +161,9 @@ void keyboard_post_init_user(void) {
 #if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
     defer_exec(100, os_detect_callback, NULL);
 #endif
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+    set_auto_mouse_enable(true);
+#endif
 }
 
 
